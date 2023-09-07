@@ -1,3 +1,3 @@
-# tomcat setup
+# Tomcat, JDK Install Script 
 
-This script will install Tomcat and JDK and/or MySQL ,Phpmyadmin.  
+You can use this script to install Apache Tomcat, JDK, Apache Web serve, MySQL ,Phpmyadmin and PHP. This script only works on AlmaLinux 8   
