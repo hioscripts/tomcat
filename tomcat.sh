@@ -413,7 +413,7 @@ chcon -R -t httpd_sys_content_t /usr/share/phpMyAdmin/
 
 elif !(systemctl is-active --quiet "$service_name.service") ; then
 
-echo -e "\nApache Web Server is not installed or apache web service is not running. Please make sure if apache web service is running and try again."
+echo -e "\nApache Web Server is either not installed or apache web service is not running. Please recheck if apache server is installed/ service is running and try again."
 
 sleep 3
 
