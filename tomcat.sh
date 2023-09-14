@@ -12,7 +12,7 @@ echo -e "\nApache Tomcat is installed already...Skipping"
 	:
 elif [ -d != ${t_dir}* ]; then 
 
-echo -e "\nTomcat not installed...Continuing..."
+echo -e "\nApache Tomcat not installed...Continuing..."
 
 echo -e "\nSelect the Tomcat version which you want to install...Please choose a number between 1 and 4"
 
@@ -59,13 +59,13 @@ esac
 done
 break
 
-echo "Opening port 8080 on local firewall...."
+echo -e "\nOpening port 8080 on local firewall...."
 
 firewall-cmd --permanent --add-port=8080/tcp
 
 firewall-cmd --reload
 
-echo "Port 8080 is opened on firewall"
+echo -e "\nPort 8080 is opened on firewall"
 
 fi
 
@@ -213,9 +213,11 @@ apcins() {
 
 service_name="httpd"
 
+# This will check if either Apache web service is running or will check if /etc/httpd folder exists 
+
 if [ -d "/etc/httpd" ]  || (systemctl is-active --quiet "$service_name.service"); then
 
-echo -e "\nApache Web Server is already installed...Skipping.."
+echo -e "\nApache Web Server is installed already...Skipping.."
 
 elif !(systemctl is-active --quiet "$service_name.service") ; then
 
@@ -313,13 +315,15 @@ done
 
 mysql_ins(){
 
+# These lines will check if MySQL service is running or if /var/lib/mysql folder exists...
+
 service_name="mysqld"
 
 if [ -d "/var/lib/mysql" ] || (systemctl is-active --quiet "$service_name.service") ; then
 
 sleep 4 
 
-echo -e "\nMySQL is already installed and service is running"
+echo -e "\nMySQL is already installed...Skipping"
 
 elif !(systemctl is-active --quiet "$service_name.service") ; then
 
